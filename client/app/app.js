@@ -6,7 +6,7 @@ angular.module('shortly', [
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
-  $routeProvider
+  $routeProvider // LINT: Missing "use strict" statement
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
@@ -14,7 +14,7 @@ angular.module('shortly', [
     .when('/signup', {
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
-    })
+    });
     // Your code here
 
     // We add our $httpInterceptor into the array
@@ -26,7 +26,7 @@ angular.module('shortly', [
   // its job is to stop all out going request
   // then look in local storage and find the user's token
   // then add it to the header so the server can validate the request
-  var attach = {
+  var attach = {  // LINT: Missing "use strict" statement
     request: function (object) {
       var jwt = $window.localStorage.getItem('com.shortly');
       if (jwt) {
@@ -46,7 +46,7 @@ angular.module('shortly', [
   // when it does change routes, we then look for the token in localstorage
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
-  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+  $rootScope.$on('$routeChangeStart', function (evt, next, current) { // LINT: Missing "use strict" statement
     if (next.$$route.controller && next.$$route.controller !== 'AuthController') {
       Auth.isAuth()
         .then(function () {

@@ -11,7 +11,7 @@ angular.module('shortly.services', [])
   // that JWT is then stored in localStorage as 'com.shortly'
   // after you signin/signup open devtools, click resources,
   // then localStorage and you'll see your token from the server
-  var signin = function (user) {
+  var signin = function (user) { // LINT: Missing "use strict" statement
     return $http({
       method: 'POST',
       url: '/api/users/signin',

@@ -4,7 +4,7 @@
 angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
-  $scope.user = {};
+  $scope.user = {}; // LINT: Missing "use strict" statement
 
   $scope.signin = function () {
     Auth.signin($scope.user)
